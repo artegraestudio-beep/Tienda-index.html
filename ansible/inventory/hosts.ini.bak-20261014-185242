@@ -1,0 +1,12 @@
+# Nexora-Tech EC2 inventory
+# Ubuntu 24.04 hosts in eu-west-1.
+# Uncomment the hosts only after confirming the correct SSH private key
+# and ensuring your current public IP is allowed by the security group.
+
+[webservers]
+# ansible-web-server ansible_host=54.155.150.215 ansible_user=ubuntu
+# ansible-web2       ansible_host=3.250.89.116   ansible_user=ubuntu
+# ansible-web3       ansible_host=108.131.165.43  ansible_user=ubuntu
+
+[webservers:vars]
+ansible_python_interpreter=/usr/bin/python3
