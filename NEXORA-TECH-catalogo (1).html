@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NEXORA TECH — tienda de electrónica, informática, gaming y hogar inteligente.">
+<title>NEXORA TECH | Tecnología del futuro</title>
+<style>
+:root{--bg:#08111f;--panel:#101e31;--panel2:#14263d;--text:#edf5ff;--muted:#a9bad0;--cyan:#53d8ed;--line:#29405b;--pink:#b78cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#173b58 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,Arial,sans-serif}
+a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:#08111feF;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;letter-spacing:.12em;font-size:19px}.brand span{color:var(--cyan)}
+.navright{display:flex;align-items:center;gap:10px}.pill,button,select,input{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);padding:10px 13px;font:inherit}
+button{cursor:pointer}button.primary{background:linear-gradient(110deg,#1baec4,#6e7cff);border:0;color:#06111d;font-weight:800}
+.hero{padding:66px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.16em;font-size:12px}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.02;margin:14px 0 18px;letter-spacing:-.04em}
+.hero p{color:var(--muted);max-width:620px;font-size:17px}
+.heroCard{min-height:260px;border:1px solid #34526e;border-radius:24px;background:linear-gradient(140deg,#173b57,#18233c 60%,#32254b);padding:26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 25px 80px #0005}
+.heroCard strong{font-size:26px}.orb{font-size:74px;text-align:right;filter:drop-shadow(0 0 22px #53d8ed88)}
+.notice{border:1px solid #7b6334;background:#332b19;color:#ffe2a1;padding:12px 15px;border-radius:12px;font-size:13px;margin:12px 0 28px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input{flex:1;min-width:190px}
+.categories{display:flex;gap:8px;overflow:auto;padding:4px 0 16px}.categories button{white-space:nowrap}.categories button.active{border-color:var(--cyan);color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:50px}
+.product{background:linear-gradient(160deg,var(--panel),#0d1929);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.art{height:155px;display:grid;place-items:center;font-size:65px;background:radial-gradient(circle,#24445e,#122238 65%,#0c1828)}
+.info{padding:16px}.tag{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.info h3{margin:7px 0;font-size:17px}.desc{color:var(--muted);font-size:13px;min-height:39px}
+.price{font-size:21px;font-weight:900;margin:12px 0}.info button{width:100%}
+footer{border-top:1px solid var(--line);padding:28px 0 45px;color:var(--muted);font-size:13px}
+.drawer{position:fixed;inset:0;background:#0009;z-index:10;display:none;justify-content:flex-end}.drawer.open{display:flex}.cart{width:min(430px,100%);height:100%;background:#0c1929;padding:22px;overflow:auto;border-left:1px solid var(--line)}
+.cartline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:13px 0}.muted{color:var(--muted)}.small{font-size:12px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:42px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.nav{height:64px}.brand{font-size:16px}.heroCard{min-height:190px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">NEXORA <span>TECH</span></div><div class="navright"><span class="pill small">Tienda tecnológica</span><button id="cartOpen">🛒 Carrito (<b id="cartCount">0</b>)</button></div></div></header>
+<main class="wrap">
+<section class="hero">
+<div><div class="eyebrow">TECNOLOGÍA DEL FUTURO, HOY</div><h1>Todo lo que conecta con tu mundo.</h1><p>Electrónica, informática, gaming y hogar inteligente en un solo lugar. Descubre tecnología para trabajar, jugar y vivir mejor.</p><a href="#catalog"><button class="primary">Explorar catálogo</button></a></div>
+<div class="heroCard"><div><div class="eyebrow">NEXORA SELECTION</div><strong>Tu próximo gadget empieza aquí.</strong><p class="muted">Selección tecnológica en constante evolución.</p></div><div class="orb">⌁ ◉ ⌁</div></div>
+</section>
+<div class="notice"><b>Versión inicial de demostración:</b> los artículos y precios son ejemplos, no ofertas ni existencias confirmadas. No se aceptan pagos ni pedidos reales todavía.</div>
+<section id="catalog"><h2>Explora el catálogo</h2><div class="toolbar"><input id="search" placeholder="Buscar productos..."><select id="sort"><option value="featured">Orden recomendado</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option></select></div><div class="categories" id="categories"></div><div class="grid" id="products"></div></section>
+</main>
+<footer><div class="wrap"><b>NEXORA TECH</b><p>Proyecto de tienda dropshipping en desarrollo. Antes de vender: validar proveedor, precio, stock, envío, garantía, devoluciones, impuestos y cumplimiento normativo.</p><p>© 2026 NEXORA TECH</p></div></footer>
+<div class="drawer" id="drawer"><aside class="cart"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Tu carrito</h2><button id="cartClose">Cerrar ✕</button></div><div id="cartItems"></div><div id="cartTotal" style="font-size:20px;font-weight:900;margin:20px 0"></div><p class="small muted">El checkout real se habilitará cuando conectemos un proveedor, pagos y backend seguro. Esta demo no transmite datos ni cobra.</p></aside></div>
+<script>
+const catalog=[
+{id:1,name:"Smartphone Nova X",cat:"Telefonía",price:249.90,icon:"📱",desc:"Móvil de ejemplo con pantalla de alta resolución.",status:"Producto de demostración"},
+{id:2,name:"Auriculares Wave Pro",cat:"Audio",price:39.90,icon:"🎧",desc:"Audio inalámbrico para uso diario.",status:"Producto de demostración"},
+{id:3,name:"Teclado mecánico RGB",cat:"Gaming",price:54.90,icon:"⌨️",desc:"Teclado gaming de ejemplo con iluminación.",status:"Producto de demostración"},
+{id:4,name:"Smartwatch Pulse",cat:"Wearables",price:49.90,icon:"⌚",desc:"Reloj inteligente de ejemplo para actividad diaria.",status:"Producto de demostración"},
+{id:5,name:"Hub USB-C 8 en 1",cat:"Accesorios",price:29.90,icon:"🔌",desc:"Conectividad para portátil y escritorio.",status:"Producto de demostración"},
+{id:6,name:"Cámara Wi-Fi Home",cat:"Hogar inteligente",price:34.90,icon:"📷",desc:"Dispositivo doméstico conectado de ejemplo.",status:"Producto de demostración"},
+{id:7,name:"Mini proyector",cat:"Electrónica",price:89.90,icon:"📽️",desc:"Proyección compacta para ocio doméstico.",status:"Producto de demostración"},
+{id:8,name:"Ratón inalámbrico",cat:"Informática",price:19.90,icon:"🖱️",desc:"Periférico ergonómico de ejemplo.",status:"Producto de demostración"},
+{id:9,name:"Altavoz Bluetooth",cat:"Audio",price:32.90,icon:"🔊",desc:"Altavoz portátil de ejemplo.",status:"Producto de demostración"},
+{id:10,name:"Auriculares Bluetooth Pro",cat:"Audio",price:39.90,icon:"🎧",desc:"Auriculares inalámbricos de alta calidad.",status:"Producto de demostración"}
+];
+let active="Todos",cart=JSON.parse(localStorage.getItem("nexora-cart")||"[]");
+const cats=["Todos",...new Set(catalog.map(p=>p.cat))];
+const catEl=document.getElementById("categories");
+cats.forEach(c=>{const b=document.createElement("button");b.textContent=c;b.className=c===active?"active":"";b.onclick=()=>{active=c;renderCats();render()};catEl.appendChild(b)});
+function renderCats(){[...catEl.children].forEach(b=>b.classList.toggle("active",b.textContent===active))}
+function render(){let list=catalog.filter(p=>(active==="Todos"||p.cat===active)&&(p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(document.getElementById("search").value.toLowerCase()));const s=document.getElementById("sort").value;if(s==="low")list.sort((a,b)=>a.price-b.price);if(s==="high")list.sort((a,b)=>b.price-a.price);document.getElementById("products").innerHTML=list.map(p=>`<article class="product"><div class="art">${p.icon}</div><div class="info"><div class="tag">${p.cat}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${p.price.toFixed(2).replace(".",",")} €</div><button onclick="add(${p.id})">Añadir al carrito</button><p class="small muted">${p.status}</p></div></article>`).join("")||"<p>No se encontraron productos.</p>"}
+function add(id){const item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id,qty:1});save()}
+function save(){localStorage.setItem("nexora-cart",JSON.stringify(cart));document.getElementById("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);renderCart()}
+function renderCart(){const el=document.getElementById("cartItems");el.innerHTML=cart.map(x=>{const p=catalog.find(p=>p.id===x.id);return `<div class="cartline"><div><b>${p.name}</b><div class="small muted">${x.qty} × ${p.price.toFixed(2)} €</div></div><button onclick="removeItem(${x.id})">Quitar</button></div>`}).join("")||'<p class="muted">Tu carrito está vacío.</p>';const total=cart.reduce((n,x)=>n+catalog.find(p=>p.id===x.id).price*x.qty,0);document.getElementById("cartTotal").textContent="Total orientativo: "+total.toFixed(2).replace(".",",")+" €"}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);save()}
+document.getElementById("search").addEventListener("input",render);document.getElementById("sort").addEventListener("change",render);
+document.getElementById("cartOpen").onclick=()=>document.getElementById("drawer").classList.add("open");document.getElementById("cartClose").onclick=()=>document.getElementById("drawer").classList.remove("open");
+document.getElementById("drawer").onclick=e=>{if(e.target.id==="drawer")e.currentTarget.classList.remove("open")};
+render();save();
+</script>
+</body></html>
